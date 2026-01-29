@@ -4,7 +4,7 @@
 namespace offsets
 {
 
-    inline uintptr_t domain_assembly_open = 0x39AD10;
+    inline uintptr_t domain_assembly_open = 0x5469F0;
     inline uintptr_t get_Methods = 0x3A97C0;
     inline uintptr_t get_Class = 0x3ADEB0;
     inline uintptr_t get_Field = 0x0;

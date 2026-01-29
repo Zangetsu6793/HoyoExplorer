@@ -148,6 +148,8 @@ namespace Dumpers
 		std::ostringstream csharps;
 		
 		// Typedefs for Il2Cpp API functions
+		//DO_API(Il2CppDomain*, il2cpp_domain_get, ());
+		typedef const Il2CppDomain* (*il2cpp_domain_get)();
 		typedef const Il2CppImage* (*il2cpp_assembly_get_image_t)(const Il2CppAssembly* assembly);
 		typedef const Il2CppAssembly* (*il2cpp_domain_assembly_open_t)(void* domain, const char* name);
 
@@ -166,6 +168,7 @@ namespace Dumpers
 		}
 		
 		// Resolve function addresses
+		auto il2cpp_domain_get = (il2cpp_domain_get)GetProcAddress(gameAssembly, "il2cpp_domain_get");
 		auto il2cpp_assembly_get_image = (il2cpp_assembly_get_image_t)GetProcAddress(gameAssembly, "il2cpp_assembly_get_image");
 		auto il2cpp_domain_assembly_open = (il2cpp_domain_assembly_open_t)GetProcAddress(gameAssembly, "il2cpp_domain_assembly_open");
 		auto il2cpp_image_get_class_count = (il2cpp_image_get_class_count_t)GetProcAddress(gameAssembly, "il2cpp_image_get_class_count");
